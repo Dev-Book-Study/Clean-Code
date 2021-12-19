@@ -26,9 +26,11 @@
 
 ### ❗ Commit 규칙
 
-`상태 : [닉네임] 주제 -  내용`
+:exclamation::exclamation::exclamation::exclamation: **지금은 전부 Owner로 되어 있기 때문에 PR은 Branch를 만들어야 진행 가능 합니다** :exclamation::exclamation::exclamation::exclamation:
 
-`ex) ADD : [dev-splin] Clean Code 1장 - 발표 자료 추가`
+`상태 : [이슈 번호] 주제 -  내용`
+
+`ex) ADD : [#1] Clean Code 1장 - 발표 자료 추가`
 
 | 상태 메세지 | 설명                                              |
 | :---------: | :------------------------------------------------ |
