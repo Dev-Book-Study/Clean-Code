@@ -24,7 +24,7 @@
 
 
 
-### ❗ Commit 규칙
+### ❗ PR 및 Commit 규칙
 
 :exclamation::exclamation::exclamation::exclamation: **지금은 전부 Owner로 되어 있기 때문에 PR은 Branch를 만들어야 진행 가능 합니다** :exclamation::exclamation::exclamation::exclamation:
 
