@@ -127,7 +127,7 @@ public List<Cell> getFlaggedCells() {
 
 ## 09. 메서드 이름
 
-> _메서드 이름은 동사나 동사구가 적합하다._
+> _메서드 이름은 동사나 동사구가 적합하다.._
 
 - 좋은 예 : `postPayment`, `deletePage`, `save` 등
 - 접근자(Accessor), 변경자(Mutator), 조건자(Predicate)는 javabean 표준에 따라 값 앞에 `get`, `set`, `is`를 붙인다. (예: `getName()`, `setName()`, `isPosted()` 등)
