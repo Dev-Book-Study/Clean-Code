@@ -26,10 +26,11 @@
 ## ❗ PR 및 Commit 규칙
 
 1. 정해진 주제를 공부/정리
-2. `{n}week-{name}-chapter{n}` 브랜치를 생성하여 정리된 내용을 `Push`
-3. 매주 일요일 스터디 전까지 `PR(Pull-Request)`
+2. `{n}week-{name}-chapter{n}` 브랜치를 생성
+3. 자신의 이름으로 파일 만들고 정리 후 `Push`
+4. 매주 일요일 스터디 전까지 `PR(Pull-Request)`
    - `PR(Pull-Request)` 제목에 자신의 `이름` 표시 :heavy_check_mark:
-4. 목요일 스터디 진행 시 해당 발표 `PR(Pull-Request)` 에 리뷰를 작성 :pen:
+5. 목요일 스터디 진행 시 해당 발표 `PR(Pull-Request)` 에 리뷰를 작성 :pen:
 
 
 
@@ -53,10 +54,9 @@
 
 ### 🗓️ 진행 상황
 
-|                            발표자                            | 발표 주제 | 발표 날짜 |
-| :----------------------------------------------------------: | :-------: | :-------: |
-| [![dev-splin](https://user-images.githubusercontent.com/79291114/146678239-f8a56ded-281e-48f1-9c58-7a5c657a2c25.jpg)](https://github.com/dev-splin/) |           |           |
-| [![LEE010](https://user-images.githubusercontent.com/79291114/146678322-9b40175b-9a71-4688-ae9d-3f6047acd1ad.png)](https://github.com/LEE010) |           |           |
-| [![developyoun](https://user-images.githubusercontent.com/79291114/146678316-3d08d291-4466-4dc9-b9f4-f7a1accf18bd.png)](https://github.com/developyoun) |           |           |
-| [![jhwlim](https://user-images.githubusercontent.com/79291114/146678321-74ee5a8d-4152-42e3-b863-e3ba67124b47.png)](https://github.com/jhwlim) |           |           |
-
+|                            발표자                            |                          발표 주제                           |    발표 날짜    |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :-------------: |
+| [![dev-splin](https://user-images.githubusercontent.com/79291114/146678239-f8a56ded-281e-48f1-9c58-7a5c657a2c25.jpg)](https://github.com/dev-splin/) |                                                              |                 |
+| [![LEE010](https://user-images.githubusercontent.com/79291114/146678322-9b40175b-9a71-4688-ae9d-3f6047acd1ad.png)](https://github.com/LEE010) |                                                              |                 |
+| [![developyoun](https://user-images.githubusercontent.com/79291114/146678316-3d08d291-4466-4dc9-b9f4-f7a1accf18bd.png)](https://github.com/developyoun) |                                                              |                 |
+| [![jhwlim](https://user-images.githubusercontent.com/79291114/146678321-74ee5a8d-4152-42e3-b863-e3ba67124b47.png)](https://github.com/jhwlim) | [2장(의미 있는 이름)](https://github.com/Clean-Code-Study/Clean-Code/blob/main/02%EC%9E%A5(%EC%9D%98%EB%AF%B8%20%EC%9E%88%EB%8A%94%20%EC%9D%B4%EB%A6%84)/jhwlim.md) | 2021.12.26 (일) |
