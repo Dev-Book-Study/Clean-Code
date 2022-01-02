@@ -304,8 +304,8 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
 - 부수효과는 좋지않다. ➡ 함수에서 한 가지를 하겠다고 하고선, 다른 짓도 하는 것이다.
 - 때로는, 예상치 못하게 클래스 변수를 수정하며, 함수로 넘어온 인수나 시스템 전역 변수를 수정한다. ➡ 많을 경우, 시간적인 결합이나(temporal coupling)이나 순서 종속성(order dependency)을 초래한다.
 
-<detail>
-<summary>모록 3-6 UserValidator.java</summary>
+<details>
+<summary>목록 3-6 UserValidator.java</summary>
 
 ```java
 public class UserValidator {
@@ -328,7 +328,7 @@ public class UserValidator {
 > 함수는 표준 알고리즘을 사용해 userName과 password를 확인한다. 두 인수가 올바르면 true를 반환하고 아니면 false를 반환한다.
 > 결과적으로 이 함수는 부수효과를 일으킨다.
 
-</detail>
+</details>
 
 - 위 코드의 부수 효과는 `Session.initialize()`의 호출이다. 
 - checkPassword라는 함수는 이름 드대로 암호를 확인하는 것이다. 그러나 암호를 확인하면서 세션을 초기화한다는 의미를 찾기 힘들다. ➡ 이런 효과가 _시간적인 결합_을 초래한다. 즉, 세션을 초기화해도 괜찮은 경우에서만 호출이 가능하다는 것.
@@ -486,7 +486,7 @@ private void logError(Exception e) {
 
 ---
 
-<detail>
+<details>
 <summary>목록 3-7 SetupTeardownIncluder.java</summary>
 
 ```java
@@ -588,16 +588,17 @@ public class SetupTeardownIncluder {
 }
 ```
 
-</detail>
+</details>
 
 
 ---
 
 __추가 학습 개념__
 
-- SRP?
-- OCP?
+- SRP
+- OCP
 - 시간적인 결합?
 - 출력 인수? [참고](https://velog.io/@sansam202/Output-Parameter%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0)
 - AOP
 - COP
+- DSL
