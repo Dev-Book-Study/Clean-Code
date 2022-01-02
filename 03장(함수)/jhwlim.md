@@ -98,7 +98,7 @@ public Money calculatePay(Employee e) throws InvalidEmployeeType {
 
 > OCP란?
 
-    개발-폐쇄 원칙 (Open/Close Principle), 자신의 확장에는 열려 있고, 주변의 변화에 대해서는 닫혀 있어야 한다. 인터페이스를 통해 구현하여 해결한다.
+    개방-폐쇄 원칙 (Open/Close Principle), 자신의 확장에는 열려 있고, 주변의 변화에 대해서는 닫혀 있어야 한다. 인터페이스를 통해 구현하여 해결한다.
 
 ### 문제 개선하기
 
@@ -180,13 +180,13 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
   좋은 예) `StringBuffer transform(StringBuilder in)`
   입력 인수를 그대로 돌려주는 하수라 할지라도 변환 함수 형식을 따르는 편이 좋다. 적어도 변환 형태는 유지하기 때문이다.
 
-### 플래그 인수
+### (2) 플래그 인수
 
 - _**플래그 인수는 추하다. 플래그 인수가 참이면 이걸 하고 거짓이면 저걸 한다는 말이다.**_
   나쁜 예) `render(boolean isSuite)` : 헷갈리기 쉽다.
   좋은 예) `renderForSuite()`, `renderForSingleTest()`
 
-### 이항 함수
+### (3) 이항 함수
 
 - 인수가 2개인 함수는 인수가 1개인 함수보다 이해하기 어렵다.
 - 이항 함수가 적절한 경우도 있다.
@@ -201,29 +201,29 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
   방법 1) writeField 메서드를 outputStream 클래스 구성원으로 만들어 `outputStream.writeField(name)`
   방법 2) FieldWriter라는 새 클래스를 만들어 구성자에서 outputStream을 받고 write메서드를 구현한다.
 
-### 삼항 함수
+### (4) 삼항 함수
 
 - 인수가 3개인 함수는 인수가 2개인 함수보다 휠썬 더 이해하기 어렵다. 순서, 주춤, 무시로 야기되는 문제가 두 배 이상 늘어난다. 그래서 삼항 함수를 만들 때는 신중히 고려하라 권고한다.
   나쁜 예) `assertEquals(message, expected, actual)` : 첫 인수가 expected라고 예상된다. 매번 함수를 볼 때마다 주춤했다가 message를 무시해야 한다는 사실을 상기한다.
   좋은 예) `assertEquals(1.0, amount, .001)` : 여전히 주춤하게 되지만 그만한 가치가 충분하다. 부동소수점 비교가 상대적이라는 사실은 언제든 주지할 중요한 사항이다.
 
-### 인수 객체
+### (5) 인수 객체
 
 - _**인수가 2-3개 필요하다면 일부를 독자적인 클래스 변수로 선언할 가능성을 짚어본다.**_
 
 #### 예제
 
 ```java
-Circle makeCircle(double x, double y, double radius);
+Circle makeCircle(double x, double y, double radius); // bad
 
-Circle makeCircle(Point center, double radius);
+Circle makeCircle(Point center, double radius); // better
 ```
 
 변수를 묶어 넘기려면 이름을 붙여야 하므로 결국은 개념을 표현하게 된다.
 
-### 인수 목록
+### (6) 인수 목록
 
-- 때로는 인수 개수가 가변적인 함수도 필요하다
+- 때로는 인수 개수가 가변적인 함수도 필요하다.
   좋은 예) `String.format()`
   ```
   public String format(String format. Object... args)
@@ -231,7 +231,7 @@ Circle makeCircle(Point center, double radius);
 - 가변 인수를 취하는 모든 함수에 같은 원리가 적용된다. 가변 인수를 취하는 함수는 단항, 이항, 삼항 함수로 취급할 수 있다. 가변 인수를 취하는 함수는 단항, 이항, 삼항 함수로 취급할 수 있다.
 - 하지만 이를 넘어서는 인수를 사용할 경우에는 문제가 있다.
 
-### 동사와 키워드
+### (7) 동사와 키워드
 
 - _**함수의 의도나 인수의 순서와 의도를 제대로 표현하려면 좋은 함수 이름이 필수다.**_
 - _**단항 함수는 함수와 인수가 동사/명사 쌍을 이뤄야 한다.**_
@@ -332,11 +332,6 @@ if (attributeExists("username")) {
 if (deletePage(page) == E_OK)
 ```
 
-위 코드의 문제점
-
-- 위 코드는 동사/형용사 혼란을 일으키지 않는 대신 여러 단계로 중첩되는 코드를 야기한다.
-- 오류 코드를 반환하면 호출자는 오류 코드를 곧바로 처리해야 한다는 문제에 부딪힌다.
-
 ```java
 if (deletePage(page) == E_OK) {
     if (registry.deleteReference(page.name) == E_OK) {
@@ -353,6 +348,11 @@ if (deletePage(page) == E_OK) {
     return E_ERROR;
 }
 ```
+
+위 코드의 문제점
+
+- 위 코드는 동사/형용사 혼란을 일으키지 않는 대신 여러 단계로 중첩되는 코드를 야기한다.
+- 오류 코드를 반환하면 호출자는 오류 코드를 곧바로 처리해야 한다는 문제에 부딪힌다.
 
 ### 문제 개선하기
 
