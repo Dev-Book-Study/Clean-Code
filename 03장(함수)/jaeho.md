@@ -26,7 +26,7 @@
       }
       WikiPage setup = PageCrawlerImpl.getInheritedPage("SetUp", wikiPage);
       if (setup != null) {
-        WikiPagePath = setupPath = wikiPage.getPageCrawler().getFullPath(setup);
+        WikiPagePath setupPath = wikiPage.getPageCrawler().getFullPath(setup);
         String setupPathName = PathParser.render(setupPath);
         buffer.append("!include - setup .")
               .append(setupPathName)
@@ -135,7 +135,7 @@ public static String renderPageWithSetupsAndTeardowns(
   }
   ```
   
-  - 이 말은, 중첩 구좌 생길만큼 함수가 커져서는 안된다는 의미이다. ➡ 함수에서 들여쓰기 수준은 1단이나 2단을 넘어서지 말도록 하자.
+  - 이 말은, 중첩 구조 생길만큼 함수가 커져서는 안된다는 의미이다. ➡ 함수에서 들여쓰기 수준은 1단이나 2단을 넘어서지 말도록 하자.
 
 ---
 
@@ -334,14 +334,14 @@ public class UserValidator {
 - checkPassword라는 함수는 이름 드대로 암호를 확인하는 것이다. 그러나 암호를 확인하면서 세션을 초기화한다는 의미를 찾기 힘들다. ➡ 이런 효과가 _시간적인 결합_을 초래한다. 즉, 세션을 초기화해도 괜찮은 경우에서만 호출이 가능하다는 것.
 - 만약, 시간적인 결합이 필요하다면 함수 이름에 분명히 명시한다. ➡ `checkpPassword` 보다, `checkPasswordAndInitializeSession`이 더 좋아 보인다. ➡ 물론, 이는 함수가 '한 가지'만 한다는 규칙을 위반하는 것..
 - __출력 인수__
-  - 일반적으로 우리는 인수를 함수 __입력__으로 해석한다. 
+  - 일반적으로 우리는 인수를 함수 __입력__ 으로 해석한다. 
   - `appendFooter(s)` 는 무언가에 s를 바닥글로 첨부할까? s에 바닥글을 첨부할까? / 입력일까? 출력일까?
     - 함수 선언부에서는 `public void appendFooter(StringBuffer report)` 로 표현하고 있다.
       - 이를 보면 인수 s가 출력 인수로 사용되고 있음을 알 수 있다. ➡ 이렇게 함수 선언부를 통해 비로소 그 역할을 이해할 수 있었으므로 인지적으로 거슬린다 표현 할 수 있겠다. (피해야 한다.)
 
   - 하지만, 객체 지향 언어에서는 출력 인수를 사용할 필요가 거의 없다.
     - 출력 인수로 사용하라고 설계한 변수가 바로 this이기 때문!
-    - 즉, 위의 예시에서 `appendFooter` 는 `report.appendFooter()` 표현하는 것 이 좋다.
+    - 즉, 위의 예시에서 `appendFooter` 는 `report.appendFooter()` 표현하는 것이 좋다.
 
   - 일반적으로 출력 인수는 피해야 한다. 함수에서 상태를 변경해야 한다면 함수가 속한 객체 상태를 변경하는 방식을 택한다.
 
@@ -353,7 +353,7 @@ public class UserValidator {
 - 함수는 뭔가를 수행하거나 뭔가에 답하거나 둘 중 하나만 해야 한다. 둘 다 하면 안됀다. ➡ 객체 상태를 변경하거나 아니면 객체 정보를 반환하거나 둘 중 하나이다.
 - `public boolean set(String attribute, String value);` ➡ 이 함수는, 이름이 attribute인 속성을 찾아 값을 value 설정한 후 성공하면 true를 반환하고, 실패하면 false를 반환한다. ➡ 즉, `if (set("username", "unclebob"))...` 로 나타낼 수 있다.
   - 독자 입장에서 이는 set이라는 단어가 동사인지 형용사인지 분간하기 어렵기 떄문에 헷갈릴 수 있다.
-- 이에 대한 해결책은 __명령과 조회를 분리__해 혼란을 애초에 뿌리뽑는 방법이다.
+- 이에 대한 해결책은 __명령과 조회를 분리__ 해 혼란을 애초에 뿌리뽑는 방법이다.
 
 ```java
 if (attributeExists("username")) {		// 조회
@@ -454,7 +454,7 @@ private void logError(Exception e) {
 
 - 중복은 코드 길이가 늘어날 뿐 아니라 알고리즘이 변하면 여러 곳이나 수정해야 한다. 게다가, 어느 한 곳이라도 빠뜨리는 경우 오류가 발생할 확률도 배로 높아진다.
 - 중복은 소프트웨어에서 모든 악의 근원이며, 많은 원칙과 기법이 중복을 없애거나 제어할 목적으로 나왔다.
-  - _E.F. 커드_는 자료에서 중복을 제거할 목적으로 관계형 데이터베이스에 정규 형식을 만들었다.
+  - _E.F. 커드_ 는 자료에서 중복을 제거할 목적으로 관계형 데이터베이스에 정규 형식을 만들었다.
   - 객체지향 프로그래밍은 코드를 부모 클래스로 몰아 중복을 없앤다.
   - 구조적 프로그래밍, AOP, COP 모두 중복 제거 전략이다.
 
