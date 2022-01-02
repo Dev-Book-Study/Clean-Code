@@ -8,7 +8,7 @@
   - 때때로 주석 없이는 자신을 표현할 방법을 찾지 못해 할 수 없이 주석을 사용한다.
   - 그렇기에 주석은 반겨 맞을 손님이 아니다..
 - 주석은 오래될수록 코드에서 멀어진다. ➡ 그 이유는, 프로그래머들이 주석을 유지하고 보수하기란 현실적으로 불가능하기 때문이다.
-- 부정확한 주석은 아예 없는 주석보다 훨씬 더 나쁘다. ➡ 진실은 __코드__에만 존재한다. 그러므로, 우리는 (간혹 필요할지라도) 주석을 가능한 줄이도록 꾸준히 노력해야 한다.
+- 부정확한 주석은 아예 없는 주석보다 훨씬 더 나쁘다. ➡ 진실은 __코드__ 에만 존재한다. 그러므로, 우리는 (간혹 필요할지라도) 주석을 가능한 줄이도록 꾸준히 노력해야 한다.
 
 ---
 
@@ -94,7 +94,7 @@ if (employee.isEligibleForFullBenefits())
       failFlag.set(false);
       
       // 스레드를 대량 생성하는 방법으로 어떻게든 경쟁 조건을 만들려 시도한다.
-     	for (int i=0; i <25000; i++) {
+      for (int i=0; i <25000; i++) {
         WidgetBuilderThread widgetBuilderThread = new WidgetBuilderThread(widgetBuilderm text, parent, failFlag);
         Thread thread = new Thread(widgetBuilderThread);
         thread.start();
