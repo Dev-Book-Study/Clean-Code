@@ -141,7 +141,7 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
 
 좋은 이름이 주는 가치는 아무리 강조해도 지나치지 않습니다. **길고 서술적인 이름이 짧고 어려운 이름보다 좋습니다.** (함수가 작고 단순할수록 서술적인 이름을 고르기 쉬워집니다.)
 
-특히, **이름을 붙일 때는 일관성이 있어야 합니다.** 예를 들어, `inclueA, includeB`가 있다면 `includeC`도 있을 수 있다고 짐작할 수 있기 때문입니다.
+특히, **이름을 붙일 때는 일관성이 있어야 합니다.** 예를 들어, `includeA, includeB`가 있다면 `includeC`도 있을 수 있다고 짐작할 수 있기 때문입니다.
 
 
 
