@@ -189,9 +189,9 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
 ### (3) 이항 함수
 
 - 인수가 2개인 함수는 인수가 1개인 함수보다 이해하기 어렵다.
+  - 좋은 예) `writeField(name)`
+  - 나쁜 예) `writeField(outputStream, name)`
 - 이항 함수가 적절한 경우도 있다.
-  좋은 예) `writeField(name)`
-  나쁜 예) `writeField(outputStream, name)`
   좋은 예) 직교 좌표계 점은 일반적으로 인수 2개를 취한다.
   ```java
   Point p = new Point(0, 0);
