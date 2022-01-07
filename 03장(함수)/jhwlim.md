@@ -205,7 +205,7 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
 
 - 인수가 3개인 함수는 인수가 2개인 함수보다 휠썬 더 이해하기 어렵다. 순서, 주춤, 무시로 야기되는 문제가 두 배 이상 늘어난다. 그래서 삼항 함수를 만들 때는 신중히 고려하라 권고한다.
   나쁜 예) `assertEquals(message, expected, actual)` : 첫 인수가 expected라고 예상된다. 매번 함수를 볼 때마다 주춤했다가 message를 무시해야 한다는 사실을 상기한다.
-  좋은 예) `assertEquals(1.0, amount, .001)` : 여전히 주춤하게 되지만 그만한 가치가 충분하다. 부동소수점 비교가 상대적이라는 사실은 언제든 주지할 중요한 사항이다.
+  좋은 예) `assertEquals(1.0, amount, .001)` : 여전히 주춤하게 되지만 그만한 가치가 충분하다. 부동소수점 비교가 상대적이라는 사실은 언제든 주시할 중요한 사항이다.
 
 ### (5) 인수 객체
 
