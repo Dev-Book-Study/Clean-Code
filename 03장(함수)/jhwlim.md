@@ -178,7 +178,7 @@ public class EmployeeFactoryImpl implements EmployeeFactory {
   나쁜 예) `void includeSetupPageInfo(StringBuffer pageText)`
   _**변환 함수에서 출력 인수를 사용하면 혼란을 일으킨다. 입력인수를 반환하는 함수라면 변환 결과는 반환값으로 돌려준다.**_
   좋은 예) `StringBuffer transform(StringBuilder in)`
-  입력 인수를 그대로 돌려주는 하수라 할지라도 변환 함수 형식을 따르는 편이 좋다. 적어도 변환 형태는 유지하기 때문이다.
+  입력 인수를 그대로 돌려주는 함수라 할지라도 변환 함수 형식을 따르는 편이 좋다. 적어도 변환 형태는 유지하기 때문이다.
 
 ### (2) 플래그 인수
 
