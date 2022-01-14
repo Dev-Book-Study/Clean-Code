@@ -249,7 +249,7 @@ DTO는 데이터베이스와 통신하거나 소켓에세 받은 메세지의 �
 DTO 같은 자료구조이지만 save나 find와 같은 탐색 함수도 제공하는 활성 레코드에 대해 나오는데, 너무 추상적이고 난해해서 아래의 링크를 참고하면 좋을 것 같습니다.
 
 **참고 링크**
-
+- [ACTIVERECORD는 왜 ACTIVE RECORD인가?](http://guruble.com/activerecord%EB%8A%94-%EC%99%9C-active-record%EC%9D%B8%EA%B0%80/)
 - [Spring : DTO(Data Transfer Object), DAO(Data Transfer Object), Connection Pool, Data Source](https://dev-splin.github.io/spring/Spring-DTO,DAO,Connection-Pool,Data-Source/)
 - [Entity, VO, DTO의 차이](https://dev-splin.github.io/spring/Spring-Entity-DTO-VO/)
 
