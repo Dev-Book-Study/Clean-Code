@@ -67,7 +67,7 @@ public Service getService() {
 
 - __Main 분리__
 
-- ![image-20220206204111623](/Users/user/Library/Application Support/typora-user-images/image-20220206204111623.png)
+- <img width="840" alt="image-20220206204111623" src="https://user-images.githubusercontent.com/59079426/152682733-1ba8b546-d6f9-4660-aff8-7066b21e6193.png">
 
   - 시스템 생성과 시스템 사용을 분리하는 한 가지 방법
 
@@ -77,7 +77,7 @@ public Service getService() {
 
 - __팩토리__
 
-- ![image-20220206204215667](/Users/user/Library/Application Support/typora-user-images/image-20220206204215667.png)
+- <img width="840" alt="image-20220206204215667" src="https://user-images.githubusercontent.com/59079426/152682760-39486a2d-98e5-45e5-80f8-b9c56578aadc.png">
 
   - 팩토리 분리는 객체가 생성되는 시점을 어플리케이션이 결정한다.
   - ABSTRACT FACTORY 패턴을 사용하여, LineItem 인스턴스의 생성시점은 어플리케이션이 결정하지만 LineItem코드는 어플리케이션이 알지 못한다.
