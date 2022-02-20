@@ -51,7 +51,7 @@ public class ComparisonCompactor {
 
     private static final String ELLIPSIS = "...";
     private String final String DELTA_END = "]";
-    private String final STring DELTA_START = "[";
+    private String final String DELTA_START = "[";
 
     private int fContextLength;
     private String fExpected;
@@ -67,12 +67,12 @@ public class ComparisonCompactor {
 
     public String compact(String message) { ... }
 
-    private String compatString(String source) { ... }
+    private String compactString(String source) { ... }
     private void findCommonPrefix() { ... }
     private void findCommonSuffix() { ... }
     private String computeCommonPrefix() { ... }
-    private String computeCommonSUffix() { ... }
-    private boolean areStringEqual() { ... }
+    private String computeCommonSuffix() { ... }
+    private boolean areStringsEqual() { ... }
 }
 ```
 
@@ -100,7 +100,7 @@ public class ComparisonCompactor {
 
    ```java
    // before
-   if (expected == null || actual == null || areStringEqual()) { ... }
+   if (expected == null || actual == null || areStringsEqual()) { ... }
 
    // after
    if (shouldNotCompact()) { ... } // 메서드로 분리한다.
@@ -114,7 +114,7 @@ public class ComparisonCompactor {
    String actual = compactString(this.actual);
 
    // after
-   String compactedExpected = compactString(expected);
+   String compactExpected = compactString(expected);
    String compactActual = compactString(actual);
    ```
 
@@ -153,10 +153,10 @@ public class ComparisonCompactor {
 
    ```java
    // before
-   public String compact() { ... }
+   public String compact(String message) { ... }
 
    // after
-   public String fomatCompactedComparison(String message) { ... }
+   public String formatCompactedComparison(String message) { ... }
    ```
 
    > 하지만 추상화 관점에서 public 메서드의 이름이 너무 구체적이지 않은가?
@@ -165,7 +165,7 @@ public class ComparisonCompactor {
 
    ```java
    // before
-   public fomatCompactedComparison() {
+   public formatCompactedComparison(String message) {
        if (canBeCompacted()) {
            findCommonPrefix();
            findCommonSuffix();
@@ -181,7 +181,7 @@ public class ComparisonCompactor {
    private String compactExpected;
    private String compactActual;
 
-   public fomatCompactedComparison() {
+   public formatCompactedComparison(String message) {
        if (canBeCompacted()) {
            compactExpectedAndActual();
            return Assert.format(message, compactExpected, compactActual);
