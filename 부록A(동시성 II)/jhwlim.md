@@ -22,6 +22,7 @@
 - 보조 코드를 추가해 동시성 문제를 사전에 노출하는 전략
 
 추천 도서
+
 - Concurrent Programming in Java : Design Principles and Patterns, Doug Lea
 
 ## 01. 클라이언트/서버 예제
@@ -188,19 +189,19 @@ public class IdGenerator {
 
 만약 `IdGenerator` 인스턴스는 그대로지만 스레드가 2개일 때, 각 스레드가 `incrementValue()` 메서드를 한 번씩 호출한다면 가능한 결과는 아래와 같다.
 
-- 스레드1이 94를 얻고, 스레드2가 95를 얻고, lastIdUsed가 95가 된다.
-- 스레드1이 94를 얻고, 스레드2가 94를 얻고, lastIdUsed가 95가 된다.
-- **스레드1이 94를 얻고, 스레드2가 94를 얻고, lastIdUsed가 94가 된다.**
+- 스레드1이 94를 얻고, 스레드2가 95를 얻고, `lastIdUsed`가 95가 된다.
+- 스레드1이 94를 얻고, 스레드2가 94를 얻고, `lastIdUsed`가 95가 된다.
+- 스레드1이 94를 얻고, 스레드2가 94를 얻고, `lastIdUsed`가 94가 된다. 👉 문제 상황!
 
 ### (1) 경로 수
 
 `return ++lastIdUsed;` 라는 자바 코드 한 줄은 바이트 코드 명령 8개에 해당한다. 두 스레드가 명령8개를 뒤섞어 실행할 가능성이 충분하다.
 
-루프나 분기가 없는 명령 N개를 스레드 T개가 차례로 실행한다면 가능한 경우의 수 = $\frac{(NT)!}{N!^T}$
+루프나 분기가 없는 명령 N개를 스레드 T개가 차례로 실행한다면 가능한 경우의 수 = (NT)! / N!^T
 
-따라서, 위의 자바 코드 한 줄이 실행 가능한 경로 수는 12,870개다. ($T=2$, $N=8$)
+따라서, 위의 자바 코드 한 줄이 실행 가능한 경로 수는 12,870개다. (T=2, N=8)
 
-만약 아래와 같이 `synchronized` 키워드를 사용한다면 가능한 경로 수는 2개로 줄어든다. (스레드가 N개일 때, 가능한 경로 수 = $N!$)
+만약 아래와 같이 `synchronized` 키워드를 사용한다면 가능한 경로 수는 2개로 줄어든다. (스레드가 N개일 때, 가능한 경로 수 = N!)
 
 ```java
 public synchronized void incrementValue() {
@@ -267,6 +268,7 @@ JVM 명세에 따르면 64비트 값을 할당하는 연산은 32비트 값을 �
 - 참고 : <https://chickenpaella.tistory.com/97>
 
 </details>
+
 ### (3) 다중 스레드 환경에서 안전하지 않은 클래스
 
 본질적으로 다중 스레드 환경에서 안전하지 않은 클래스
@@ -324,7 +326,9 @@ if(!hashTable.containsKey(someKey)) {
   ```
 
 ## 04. 메서드 사이에 존재하는 의존성을 조심하라
+
 서버
+
 ```java
 public class IntegerIterator Implements Iterator<Integer> {
 
@@ -348,6 +352,7 @@ public class IntegerIterator Implements Iterator<Integer> {
 ```
 
 클라이언트
+
 ```java
 IntegerIterator iterator = new IntegerIterator();
 while (iterator.hasNext()) { // (1)
@@ -395,7 +400,9 @@ while (true) {
 - ⚠️ 서버를 사용하는 모든 프로그래머가 락을 기억해 객체에 걸었다 풀어야 하므로 다소 위험한 전략이다.
 
 ### (3) 서버-기반 잠금
+
 서버
+
 ```java
 public class IntegerIteratorServerLocked {
 
@@ -413,6 +420,7 @@ public class IntegerIteratorServerLocked {
 ```
 
 클라이언트
+
 ```java
 while (true) {
     Integer nextValue = iterator.getNextOrNull();
